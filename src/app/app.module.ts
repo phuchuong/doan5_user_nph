@@ -1,18 +1,57 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IndexComponent } from './modules/homes/index/index.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { ChitietspComponent } from './modules/homes/chitietsp/chitietsp.component';
+import { FormsModule } from '@angular/forms';
+import { GiohangComponent } from './modules/homes/giohang/giohang.component';
+import { TrangconComponent } from './modules/homes/trangcon/trangcon.component';
+import { ThanhtoanComponent } from './modules/homes/thanhtoan/thanhtoan.component';
+import { SanphamallComponent } from './modules/homes/sanphamall/sanphamall.component';
+
+
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginComponent } from './modules/homes/login/login.component';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IndexComponent,
+    HeaderComponent,
+    FooterComponent,
+    ChitietspComponent,
+    GiohangComponent,
+    TrangconComponent,
+    ThanhtoanComponent,
+    SanphamallComponent,
+    LoginComponent,
+
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+
+
+ }
