@@ -1,0 +1,53 @@
+.container {
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.left-section,
+.middle-section,
+.right-section {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.left-section {
+  background-color: #f5f5f5;
+}
+
+.middle-section {
+  background-color: #fff;
+}
+
+.right-section {
+  background-color: #f5f5f5;
+}
+
+.left-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.left-section h2,
+.right-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.middle-section p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.middle-section a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.middle-section a:hover {
+  text-decoration: underline;
+}

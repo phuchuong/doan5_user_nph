@@ -1,0 +1,42 @@
+<div class=" layout-2 left-col" style="padding-bottom:30px ;padding-top:150px">
+
+  <div id="error-not-found" class="container">
+    <br/>
+    <p style="font-size: 40px; text-align: center;">ĐƠN MUA</p>
+
+    <div class="order" *ngFor="let list_HDB of list_item ;let i = index">
+      <h1 class="order">Chi Tiết Đơn Hàng:{{i+1}}</h1>
+      <!-- <p>maHDB: {{list_HDB.MaHDB}}</p> -->
+
+      <div *ngFor="let list_CTHDB of listCTHDB[i];let k =index ">
+
+        <div class="order-item">
+          <img src="{{PhotoPath}}/{{list_CTHDB.anhdienthoai}}" alt="Product Image">
+          <div class="item-details">
+            <!-- <p>MaCTHDB: {{list_CTHDB.MaCTHDB}}</p> -->
+            <h2>Tên điện thoại : {{list_CTHDB.tendienthoai }}</h2>
+            <p>Màu: {{list_CTHDB.maudienthoai}} </p>
+
+
+            <p>Số lượng: {{list_CTHDB.SoLuong}} </p>
+            <p>Gía: {{list_CTHDB.ThanhTien| number}}.VND</p>
+            <p>Trạng thái đơn hàng:{{list_HDB.TrangThai}}</p>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="total">
+        <h2>Tổng Tiền: {{list_HDB.ThanhTien | number}}.VND</h2>
+      </div>
+    </div>
+
+  </div>
+
+<!--
+  <div class="order a">
+    <p>Tổng tiền {{this.list_item.ThanhTien}}</p>
+  </div> -->
+
+</div>
+

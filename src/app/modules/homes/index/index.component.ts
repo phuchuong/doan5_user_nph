@@ -22,10 +22,11 @@ export class IndexComponent
   public list_item: any;
   listCart: any = [];
   cart = {
-    MaSP: '',
-    TenSP: '',
-    AnhSP: '',
-    TenMS:'',
+    MaDT: '',
+    TenDT: '',
+    IDLoaiDT: '',
+    AnhDT: '',
+    TenMS: '',
     Gia: 0,
     SoLuong: 1,
     Sale: 0,
@@ -38,13 +39,12 @@ export class IndexComponent
     private _api: ApiService,
     private http: HttpClient,
     public router: Router
-  )
-  {
+  ) {
     super(injector);
   }
 
   ngOnInit(): void {
-    this._api.get('/api/SanPham').subscribe((res) => {
+    this._api.get('/api/DienThoai').subscribe((res) => {
       this.list_item = res;
       console.log(this.list_item);
       setTimeout(() => {
@@ -53,7 +53,8 @@ export class IndexComponent
           'assets/js/slide_show.js',
           'assets/catalog/view/javascript/common.js',
           'assets/catalog/view/javascript/webdigify/custom.js',
-          'assets/a.js'
+          'assets/a.js',
+          'assets/catalog/view/javascript/jquery/swiper/js/swiper.jquery.js'
           //   // ,'assets/catalog/view/javascript/webdigify/jstree.min.js'
           //   // ,'assets/catalog/view/javascript/webdigify/carousel.min.js'
           //   // ,'assets/catalog/view/javascript/webdigify/webdigify.min.js'
@@ -82,6 +83,9 @@ export class IndexComponent
       });
     });
   }
+  ngAfterViewInit() {
+
+  }
 
   loaisanpham(s: any) {
     if (
@@ -108,41 +112,58 @@ export class IndexComponent
     console.log(localStorage.getItem('product'));
     this.router.navigate(['chitiet']);
   }
+  tintuc(id: any) {
+    if (
+      localStorage.getItem('tintuc') == null ||
+      localStorage.getItem('tintuc') == ''
+    ) {
+      localStorage.setItem('tintuc', JSON.stringify(id));
+    } else {
+      localStorage.setItem('tintuc', JSON.stringify(id));
+    }
+    console.log(localStorage.getItem('tintuc'));
+    this.router.navigate(['tintuc']);
+  }
 
   cartproduct(list: any) {
-    this.cart.MaSP=list.MaSP;
-    this.cart.TenSP=list.TenSP;
-    this.cart.AnhSP=list.AnhSP;
-    this.cart.TenMS=list.TenMS;
-    this.cart.Sale=list.Sale;
-    this.cart.Gia=list.Gia;
-    this.cart.TongTien=list.Gia*(100-list.Sale)/100;
+    this.cart.MaDT = list.MaDT;
+    this.cart.TenDT = list.TenDT;
+    this.cart.IDLoaiDT = list.IDLoaiDT;
+    this.cart.AnhDT = list.AnhDT;
+    this.cart.TenMS = list.TenMS;
+    this.cart.Sale = list.Sale;
+    this.cart.Gia = list.Gia;
 
-    let check=true;
-    if(localStorage.getItem('listCart')==null||localStorage.getItem('listCart')==''){
+    // this.cart.SoLuong =list.SoLuong;
+    this.cart.TongTien = (list.Gia * (100 - list.Sale)) / 100;
+
+    let check = true;
+    if (
+      localStorage.getItem('listCart') == null ||
+      localStorage.getItem('listCart') == ''
+    ) {
       this.listCart.unshift(this.cart);
-      localStorage.setItem('listCart',JSON.stringify(this.listCart));
-    }
-    else{
-      var list=JSON.parse(localStorage.getItem('listCart')||'{}');
-      for(let i=0;i<list.length; i++){
-        if(list[i].MaSP==this.cart.MaSP){
-          list[i].SoLuong=list[i].SoLuong+1
-          this.listCart=list;
-          localStorage.setItem('listCart',JSON.stringify(this.listCart));
-          check=false;
-          break
+      localStorage.setItem('listCart', JSON.stringify(this.listCart));
+    } else {
+      var list = JSON.parse(localStorage.getItem('listCart') || '{}');
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].MaDT == this.cart.MaDT) {
+          list[i].SoLuong = list[i].SoLuong + 1;
+          this.listCart = list;
+          localStorage.setItem('listCart', JSON.stringify(this.listCart));
+          check = false;
+          break;
         }
       }
-      if(check){
-        this.listCart=JSON.parse(localStorage.getItem('listCart')||'{}');
+      if (check) {
+        this.listCart = JSON.parse(localStorage.getItem('listCart') || '{}');
         this.listCart.unshift(this.cart);
-        localStorage.setItem('listCart',JSON.stringify(this.listCart));
+        localStorage.setItem('listCart', JSON.stringify(this.listCart));
       }
     }
     console.log(this.listCart);
-    alert("Đã Thêm Giỏ Hàng Thành Công");
+    alert('Đã Thêm Giỏ Hàng Thành Công');
   }
 
-  ngAfterViewInit() {}
+
 }

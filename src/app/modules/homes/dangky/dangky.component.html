@@ -1,0 +1,87 @@
+
+
+
+<div id="account-register" class="container">
+  <div class="row">
+    <div id="content" class="col-sm-9 " style="margin: 40px 0px; margin-left: 150px;">
+      <h1>ĐĂNG KÝ TÀI KHOẢN</h1>
+      <p>Nếu bạn đã có tài khoản với chúng tôi, vui lòng đăng nhập tại trang đăng nhập <a href="login">trang đăng nhập</a>.</p>
+      <form action="https://demo.webdigify.com/OPC03/OPC090_quickstore/index.php?route=account/register" method="post"
+        enctype="multipart/form-data" class="form-horizontal">
+        <fieldset id="account">
+          <legend>Nhập thông tin khách hàng</legend>
+          <div class="form-group required" style="display:  none ;">
+            <label class="col-sm-2 control-label">Customer Group</label>
+            <div class="col-sm-10">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="customer_group_id" value="1" checked="checked" />
+                  Default</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-firstname"> Tên khách hàng</label>
+            <div class="col-sm-10">
+              <input type="text"  value="" placeholder="Tên khách hàng" id="input-firstname"
+                class="form-control" [(ngModel)]="list_NPH.TenKH" name="TenKH"/>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-lastname"> Địa chỉ</label>
+            <div class="col-sm-10">
+              <input type="text" name="lastname" value="" placeholder="Địa chỉ" id="input-lastname"
+                class="form-control" [(ngModel)]="list_NPH.Diachi" name="Diachi" />
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-email">E-Mail</label>
+            <div class="col-sm-10">
+              <input type="email" name="email" value="" placeholder="E-Mail" id="input-email" class="form-control" [(ngModel)]="list_NPH.Email" name="Email"/>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-telephone">Số điện thoại</label>
+            <div class="col-sm-10">
+              <input type="tel" name="telephone" value="" placeholder="Số điện thoại" id="input-telephone"
+                class="form-control" [(ngModel)]="list_NPH.SDT" name="SDT"  />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Nhập thông tin tài khoản</legend>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-firstname"> Tên đăng nhập</label>
+            <div class="col-sm-10">
+              <input type="text"  value="" placeholder="Tên đăng nhập" id="input-firstname"
+                class="form-control" [(ngModel)]="list_NPH.Tendangnhap" name="Tendangnhap"/>
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-password">Mật khẩu</label>
+            <div class="col-sm-10">
+              <input type="password" name="password" value="" placeholder="Mật khẩu" id="input-password"
+                class="form-control" [(ngModel)]="list_NPH.Matkhau" name="Matkhau" />
+            </div>
+          </div>
+          <!-- <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-confirm">Nhập lại mật khẩu</label>
+            <div class="col-sm-10">
+              <input type="password" name="confirm" value="" placeholder="Password Confirm" id="input-confirm"
+                class="form-control" [(ngModel)]="list_NPH.Matkhau" name="Matkhau"/>
+            </div>
+          </div> -->
+        </fieldset>
+
+
+        <div class="buttons">
+          <div class="pull-right">
+            <!-- <input type="checkbox" name="agree" value="1" /> -->
+            &nbsp;
+            <input type="submit" value="Continue" class="btn btn-primary" (click)="creat()"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

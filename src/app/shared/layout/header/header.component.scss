@@ -7,3 +7,71 @@ button.fa.fa-search.search {
   margin-top: 8px;
   background-color: white;
 }
+
+
+
+
+nav #menu{
+  padding-top: 10px;
+}
+nav ul {
+  list-style-type: none;
+
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  background-color: #ffffff;
+  // padding: 10px;
+  margin-top: 10px;
+  max-width: 150px;
+  max-height: 35px;
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 5px;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+nav ul li:hover > a {
+  max-width: 150px;
+
+  background-color: #eee;
+}
+
+nav ul li:hover .sub-menu {
+  display: block;
+}
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  // max-width: 100px;
+  background-color: #fff;
+  border: 1px solid #fffdfd;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.sub-menu li {
+  width: 150px;
+
+}
+
+.sub-menu li a {
+
+  padding: 10px;
+  color: #ffffff;
+}
+
+.sub-menu li a:hover {
+  background-color: #eee;
+}

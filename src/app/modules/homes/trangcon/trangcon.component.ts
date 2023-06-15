@@ -25,9 +25,10 @@ export class TrangconComponent
 
   listCart: any = [];
   cart = {
-    MaSP: '',
-    TenSP: '',
-    AnhSP: '',
+    MaDT: '',
+    TenDT: '',
+    IDLoaiDT:'',
+    AnhDT: '',
     TenMS:'',
     Gia: 0,
     SoLuong: 1,
@@ -47,7 +48,7 @@ export class TrangconComponent
 
   ngOnInit(): void {
     this._api
-      .get('/api/SanPham/loaisanpham?loaisanpham=' + this.id)
+      .get('/api/DienThoai/loaidienthoai?loaidienthoai=' + this.id)
       .subscribe((res) => {
         this.list_item = res;
         console.log(this.list_item);
@@ -101,12 +102,13 @@ export class TrangconComponent
     this.router.navigate(['chitiet']);
   }
   cartproduct(list: any) {
-    this.cart.MaSP = list.MaSP;
-    this.cart.TenSP = list.TenSP;
-    this.cart.AnhSP = list.AnhSP;
+    this.cart.MaDT = list.MaDT;
+    this.cart.TenDT = list.TenDT;
+    this.cart.IDLoaiDT=list.IDLoaiDT;
+    this.cart.AnhDT = list.AnhDT;
     this.cart.TenMS = list.TenMS;
-    this.cart.SoLuong = list.SoLuong;
-
+    // this.cart.SoLuong = list.SoLuong;
+    this.cart.Sale=list.Sale;
     this.cart.Gia = list.Gia;
     this.cart.TongTien = (list.Gia * (100 - list.Sale)) / 100;
 
@@ -120,7 +122,7 @@ export class TrangconComponent
     } else {
       var list = JSON.parse(localStorage.getItem('listCart') || '{}');
       for (let i = 0; i < list.length; i++) {
-        if (list[i].MaSP == this.cart.MaSP) {
+        if (list[i].MaDT == this.cart.MaDT) {
           list[i].SoLuong = list[i].SoLuong + 1;
           this.listCart = list;
           localStorage.setItem('listCart', JSON.stringify(this.listCart));

@@ -23,16 +23,16 @@ export class ChitietspComponent
   }
   sanpham:any=JSON.parse(localStorage.getItem("product") || '{}');
   listCart:any=[];
-  cart={MaSP:'',TenSP:'',AnhSP:'',TenMS:'',Gia:0,SoLuong:1,Sale:0,TongTien:0}
+  cart={MaDT:'',TenDT:'',AnhDT:'',TenMS:'',Gia:0,SoLuong:1,Sale:0,TongTien:0}
   soluong=1
   PhotoPath="http://localhost:5093/Photos";
 
 
   ngOnInit(): void {
     console.log(this.sanpham);
-    this.cart.MaSP=this.sanpham.MaSP;
-    this.cart.TenSP=this.sanpham.TenSP;
-    this.cart.AnhSP=this.sanpham.AnhSP;
+    this.cart.MaDT=this.sanpham.MaDT;
+    this.cart.TenDT=this.sanpham.TenDT;
+    this.cart.AnhDT=this.sanpham.AnhDT;
     this.cart.TenMS=this.sanpham.TenMS;
     this.cart.Gia=this.sanpham.Gia;
     // this.cart.SoLuong=this.sanpham.Soluong;
@@ -84,7 +84,7 @@ export class ChitietspComponent
     else{
       var list=JSON.parse(localStorage.getItem('listCart')||'{}');
       for(let i=0;i<list.length; i++){
-        if(list[i].MaSP==this.cart.MaSP){
+        if(list[i].MaDT==this.cart.MaDT){
           list[i].SoLuong=list[i].SoLuong+this.soluong
           this.listCart=list;
           localStorage.setItem('listCart',JSON.stringify(this.listCart));

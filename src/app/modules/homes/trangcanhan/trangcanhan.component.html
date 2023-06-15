@@ -1,0 +1,31 @@
+<div class=" layout-2 left-col" style="padding-bottom:30px ;padding-top:150px">
+  <div id="error-not-found" class="container">
+    <div class="container">
+      <div class="profile">
+        <img src="../../../../assets/All/10-anh-dai-dien-trang-inkythuatso-03-15-27-10.jpg" alt="Avatar" class="avatar">
+        <h1>{{a.TenKH}} </h1>
+        <!-- <p>Front-end Developer</p> -->
+      </div>
+      <div class="details">
+
+        <h2>Thông tin khách hàng:</h2>
+        <p>Email: {{a.Email}}</p>
+        <p>Số điện thoại: {{a.SDT}}</p>
+        <p>Địa chỉ: {{a.Diachi}}</p>
+        <br />
+        <h2>Đơn Mua:</h2>
+        <br />
+        <ul>
+          <li>
+            <a class="button-link" [routerLink]="['/donhang']" target="_blank">
+              <!-- <span class="bi bi-cart4"></span> -->
+              Đơn Hàng Của Tôi
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <button id="logoutButton" (click)="loguout()">Đăng xuất</button>
+
+</div>

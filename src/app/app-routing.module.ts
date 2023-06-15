@@ -10,6 +10,11 @@ import { TrangconComponent } from './modules/homes/trangcon/trangcon.component';
 
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
+import { DangkyComponent } from './modules/homes/dangky/dangky.component';
+import { ThongbaoComponent } from './modules/homes/thongbao/thongbao.component';
+import { TintucComponent } from './modules/homes/tintuc/tintuc.component';
+import { DonhangcuatoiComponent } from './modules/homes/donhangcuatoi/donhangcuatoi.component';
+import { TrangcanhanComponent } from './modules/homes/trangcanhan/trangcanhan.component';
 
 
 
@@ -24,6 +29,14 @@ const routes: Routes = [
   {path:'thanhtoan', component:ThanhtoanComponent},
   {path:'allsanpham', component:SanphamallComponent},
   {path:'login', component:LoginComponent},
+  {path:'dangky', component:DangkyComponent},
+  {path:'thongbao1', component:ThongbaoComponent},
+  {path:'tintuc', component:TintucComponent},
+  {path:'donhang', component:DonhangcuatoiComponent},
+  {path:'trangcanhan', component:TrangcanhanComponent},
+
+
+
 
 
 

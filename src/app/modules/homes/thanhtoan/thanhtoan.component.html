@@ -127,7 +127,7 @@
                 <ul class="list-group mb-3" >
                   <li class="list-group-item d-flex justify-content-between lh-condensed" *ngFor="let list of sanpham;let indexOfelement=index;">
                     <div>
-                      <h6 class="my-0"  ><img style="width:50px; padding: 5px 0px;" src="{{PhotoPath}}/{{list.AnhSP}}" alt=""></h6>
+                      <h6 class="my-0"  ><img style="width:50px; padding: 5px 0px;" src="{{PhotoPath}}/{{list.AnhDT}}" alt=""></h6>
                     </div>
                     <div>
                       <h6 class="my-0" style="padding-top:20px " ><img >X{{list.SoLuong}}</h6>
@@ -149,31 +149,30 @@
               <div class="col-md-8 order-md-1">
                 <!-- <h4 class="mb-3">Billing address</h4> -->
 
-
                   <div class="mb-3">
                     <label for="firstName">Nhập Tên</label>
-                    <input type="text" class="form-control"  [(ngModel)]="TenKH"  placeholder="Nhập họ tên">
+                    <input type="text" class="form-control" name="TenKH"  [(ngModel)]="this.khachhang.TenKH"  placeholder="Nhập họ tên">
                   </div>
 
                   <div class="mb-3">
                     <label for="username">SĐT</label>
                     <div class="input-group">
-                      <input type="text" class="form-control"  [(ngModel)]="SDT" placeholder="Số điện thoại">
+                      <input type="text" class="form-control" name="SDT" [(ngModel)]="this.khachhang.SDT" placeholder="Số điện thoại">
                     </div>
                   </div>
                   <div class="mb-3">
                     <label for="username">Email</label>
                     <div class="input-group">
-                      <input type="text" class="form-control"  [(ngModel)]="Email" placeholder="Nhập Email">
+                      <input type="text" class="form-control" name="Email" [(ngModel)]="this.khachhang.Email" placeholder="Nhập Email">
                     </div>
                   </div>
                   <div class="mb-3">
                     <label for="email">Địa chỉ <span class="text-muted"></span></label>
-                    <input type="email" class="form-control" [(ngModel)]="Diachi"  placeholder="Nhập địa chỉ" >
+                    <input type="email" class="form-control" name="Diachi" [(ngModel)]="this.khachhang.Diachi"  placeholder="Nhập địa chỉ" >
                   </div>
                   <div class="mb-3">
                     <label for="address">Ghi chú</label>
-                    <input type="text" class="form-control" [(ngModel)]="ghichu" placeholder="Nhập ghi chú của bạn" >
+                    <input type="text" class="form-control" name="ghichu" [(ngModel)]="this.ghichu" placeholder="Nhập ghi chú của bạn" >
                   </div>
                   <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="order()">Đặt hàng</button>
 

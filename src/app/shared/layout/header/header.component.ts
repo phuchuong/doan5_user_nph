@@ -15,14 +15,17 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent extends BaseComponent implements OnInit, AfterViewInit
+export class HeaderComponent
+  extends BaseComponent
+  implements OnInit, AfterViewInit
 {
   public list_item: any;
   listCart: any = [];
   cart1 = {
-    MaSP: '',
-    TenSP: '',
-    AnhSP: '',
+    MaDT: '',
+    TenDT: '',
+    IDLoaiDT:'',
+    AnhDT: '',
     TenMS: '',
     Gia: 0,
     SoLuong: 1,
@@ -43,15 +46,11 @@ export class HeaderComponent extends BaseComponent implements OnInit, AfterViewI
     throw new Error('Method not implemented.');
   }
   ngOnInit(): void {
-    this._api.get('/api/SanPham').subscribe((res) => {
+    this._api.get('/api/DienThoai').subscribe((res) => {
       this.list_item = res;
       console.log(this.list_item);
       setTimeout(() => {
-        this.loadScripts(
-          'assets/js/hide_menu.js',
-          'assets/js/slide_show.js',
-
-        );
+        // this.loadScripts('assets/js/hide_menu.js', 'assets/js/slide_show.js');
       });
     });
   }
@@ -69,16 +68,16 @@ export class HeaderComponent extends BaseComponent implements OnInit, AfterViewI
       localStorage.setItem('id', JSON.stringify(s));
     }
     else {
+      localStorage.removeItem('id');
       localStorage.setItem('id', JSON.stringify(s));
-      // location.reload();
 
     }
 
-    console.log(localStorage.getItem('id'));
+    // console.log(localStorage.getItem('id'));
+    // this.router.navigate(['/trangcon']);
+    window.location.href = '/trangcon';
 
-    this.router.navigate(['/trangcon']);
-      // location.reload();
-
-
+    // location.reload();
+    // this.ngOnInit();
   }
 }

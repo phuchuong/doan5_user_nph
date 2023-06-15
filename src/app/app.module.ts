@@ -13,12 +13,18 @@ import { GiohangComponent } from './modules/homes/giohang/giohang.component';
 import { TrangconComponent } from './modules/homes/trangcon/trangcon.component';
 import { ThanhtoanComponent } from './modules/homes/thanhtoan/thanhtoan.component';
 import { SanphamallComponent } from './modules/homes/sanphamall/sanphamall.component';
-
+import { LoginComponent } from './modules/homes/login/login.component';
+import { DangkyComponent } from './modules/homes/dangky/dangky.component';
+import { ThongbaoComponent } from './modules/homes/thongbao/thongbao.component';
+import { TintucComponent } from './modules/homes/tintuc/tintuc.component';
+import { DonhangcuatoiComponent } from './modules/homes/donhangcuatoi/donhangcuatoi.component';
+import { TrangcanhanComponent } from './modules/homes/trangcanhan/trangcanhan.component';
 
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { LoginComponent } from './modules/homes/login/login.component';
+
+
 
 
 
@@ -35,6 +41,11 @@ import { LoginComponent } from './modules/homes/login/login.component';
     ThanhtoanComponent,
     SanphamallComponent,
     LoginComponent,
+    DangkyComponent,
+    ThongbaoComponent,
+    TintucComponent,
+    DonhangcuatoiComponent,
+    TrangcanhanComponent
 
 
   ],

@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
     public host = environment.BASE_API;
-    
+
     constructor(private _http: HttpClient, public router: Router) { }
 
     public post(url: string, obj: any): Observable<any> {
@@ -39,4 +39,22 @@ export class ApiService {
                 })
             );
     }
+
+    public put(url: string, obj: any): Observable<any> {
+      const body = JSON.stringify(obj);
+
+      let cloneHeader: any = {};
+      cloneHeader['Content-Type'] = 'application/json';
+      const headerOptions = new HttpHeaders(cloneHeader);
+      return this._http
+        .put<any>(this.host + url, body, { headers: headerOptions })
+        .pipe(
+          map((res: any) => {
+            return res;
+          })
+        );
+    }
+    public delete(id:any){
+      return this._http.delete(this.host + "/"+id);
+   }
 }

@@ -11,7 +11,7 @@
                   <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
                     <span class="hidden-xs hidden-sm hidden-md">
 
-                      <img src="assets/catalog/language/en-gb/en-gb.png" alt="English" title="English">English
+                      <img src="assets/catalog/language/en-gb/en-gb.png" alt="English" title="English">VietNam
                       <i class="fa fa-angle-down" aria-hidden="true"></i></span></button>
                   <ul class="dropdoen-menu language-menu">
                     <li>
@@ -67,25 +67,40 @@
 
         </div>
         <div class="right-nav">
+
+
           <div class="nav2">
 
-            <div class="account">
-              <div class="dropdown myaccount"><a [routerLink]="['/login']" title="My Account"
-                  class="dropdown-toggle" data-toggle="dropdown"><span class="account-title">Tài Khoản</span></a>
+            <!-- <div class="account">
+              <div class="dropdown myaccount"><a [routerLink]="['/login']" title="My Account" class="dropdown-toggle"
+                  data-toggle="dropdown"><span class="account-title">Tài Khoản</span></a>
 
                 <ul class="dropdown-menu dropdown-menu-right myaccount-menu">
                   <span class="drop_account">
                     <div class="login_acc">
-                      <li><a class="login" [routerLink]="['/login']">Login</a>
-                      </li>
+                      <li><a class="login" [routerLink]="['/trangcanhan']">Tài khoản cá nhân</a></li>
+                      <li><a class="login" [routerLink]="['/login']">Đăng nhập</a></li>
+                      <li><a class="login" [routerLink]="['/dangky']">Đăng ký</a></li>
 
                     </div>
                   </span>
                 </ul>
-
               </div>
+            </div> -->
+            <div class="account">
+              <nav>
+                <ul class="menu">
+                  <li>
+                    <a class="aaa" href="#about">Tài Khoản</a>
+                    <ul class="sub-menu">
+                      <li><a class="" [routerLink]="['/trangcanhan']">Tài khoản cá nhân</a></li>
+                      <li><a class="" [routerLink]="['/login']">Đăng nhập</a></li>
+                      <li><a class="" [routerLink]="['/dangky']">Đăng ký</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
             </div>
-
 
 
             <div> <a class="compare glyphicon glyphicon-shopping-cart"
@@ -103,8 +118,6 @@
           <div id="logo"><a routerLink="/"> <img src="assets/image/n.png" style="height: 43px;" title="QuickStore"
                 alt="QuickStore" /> </a> </div>
         </div>
-
-
         <div class="headertop">
           <aside id="header-top">
             <div class="main-category-list left-menu">
@@ -247,7 +260,7 @@
                         <span>vivo</span>
                       </a>
                     </li>
-<!--
+                    <!--
                     <li class="li-top-item mega-menu">
                       <a class="a-top-link" (click)="loaisanpham(6)">
                         <span>oppo</span>

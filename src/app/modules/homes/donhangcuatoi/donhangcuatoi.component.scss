@@ -1,0 +1,71 @@
+.order {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+
+
+  }
+
+.order h1 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.order-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.order-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-details h2 {
+  color: #333;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.item-details p {
+  color: #777;
+  font-size: 14px;
+  margin: 0;
+}
+
+.total {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.total h2 {
+  font-weight: bold;
+  font-size: 20px;
+  color: #333;
+}
+
+/* Hover effect on order items */
+.order-item:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.a{
+  padding-left: 450px;
+}

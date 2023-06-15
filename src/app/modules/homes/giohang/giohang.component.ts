@@ -38,7 +38,7 @@ export class GiohangComponent implements OnInit {
   }
   Giam(list:any){
     for(let i of this.sanpham){
-      if(i.MaSP==list.MaSP){
+      if(i.MaDT==list.MaDT){
         if(i.SoLuong==1){
           break;
         }
@@ -58,7 +58,7 @@ export class GiohangComponent implements OnInit {
 
   Tang(list:any){
     for(let i of this.sanpham){
-      if(i.MaSP==list.MaSP){
+      if(i.MaDT==list.MaDT){
           i.SoLuong++;
           break;
         }

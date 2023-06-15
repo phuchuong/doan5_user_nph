@@ -23,11 +23,14 @@ export class SanphamallComponent
   implements OnInit, AfterViewInit
 {
   public list_item: any;
+
   listCart: any = [];
+
   cart = {
-    MaSP: '',
-    TenSP: '',
-    AnhSP: '',
+    MaDT: '',
+    TenDT: '',
+    IDLoaiDT:'',
+    AnhDT: '',
     TenMS:'',
     Gia: 0,
     SoLuong: 1,
@@ -48,10 +51,12 @@ export class SanphamallComponent
   {
     super(injector);
   }
-
+  listallsptrunggian:any[]=[];
+  
   ngOnInit(): void {
-    this._api.get('/api/SanPham').subscribe((res) => {
+    this._api.get('/api/DienThoai').subscribe((res) => {
       this.list_item = res;
+      this.listallsptrunggian=res;
       console.log(this.list_item);
       setTimeout(() => {
         this.loadScripts(
@@ -116,9 +121,10 @@ export class SanphamallComponent
   }
 
   cartproduct(list: any) {
-    this.cart.MaSP=list.MaSP;
-    this.cart.TenSP=list.TenSP;
-    this.cart.AnhSP=list.AnhSP;
+    this.cart.MaDT=list.MaDT;
+    this.cart.TenDT=list.TenDT;
+    this.cart.IDLoaiDT=list.IDLoaiDT;
+    this.cart.AnhDT=list.AnhDT;
     this.cart.TenMS=list.TenMS;
     this.cart.Sale=list.Sale;
     this.cart.Gia=list.Gia;
@@ -132,7 +138,7 @@ export class SanphamallComponent
     else{
       var list=JSON.parse(localStorage.getItem('listCart')||'{}');
       for(let i=0;i<list.length; i++){
-        if(list[i].MaSP==this.cart.MaSP){
+        if(list[i].MaDT==this.cart.MaDT){
           list[i].SoLuong=list[i].SoLuong+1
           this.listCart=list;
           localStorage.setItem('listCart',JSON.stringify(this.listCart));
@@ -150,15 +156,71 @@ export class SanphamallComponent
     alert("Đã Thêm Giỏ Hàng Thành Công");
   }
   Search() {
-    if (this.cart.TenSP == '') {
+    if (this.cart.TenDT == '') {
       this.ngOnInit();
     } else {
       this.list_item = this.list_item.filter((res: any) => {
-        return res.TenSP.toLocaleLowerCase().match(
-          this.cart.TenSP.toLocaleLowerCase()
+        return res.TenDT.toLocaleLowerCase().match(
+          this.cart.TenDT.toLocaleLowerCase()
         );
       });
     }
+  }
+  giatriduocchon=0;
+  SearchbyPrice()
+  {
+        if(this.listallsptrunggian.length>this.list_item.length)
+        {
+          this.list_item=this.listallsptrunggian
+        }
+        let listtamthoi:any[]=[];
+        this.list_item.forEach(e=>{
+          if(e.Gia<=this.giatriduocchon)
+          {
+            listtamthoi.push(e)
+          }
+        })
+        this.list_item=listtamthoi;
+
+    // if(Number(giamin)>0 && Number(giamax)>0)
+    // {
+    //   if(Number(giamax)<Number(giamin))
+    //   {
+    //     alert("gia")
+    //   }
+    //   else{
+    //     let listtamthoi:any[]=[];
+    //     this.list_item.forEach(e=>{
+    //       if(e.Gia<=Number(giamax) && e.Gia>=Number(giamin))
+    //       {
+    //         listtamthoi.push(e)
+    //       }
+    //     })
+    //     this.list_item=listtamthoi;
+    //   }
+    // }
+    // else if(Number(giamin)==0 && Number(giamax)>0)
+    // {
+    //   let listtamthoi:any[]=[];
+    //   this.list_item.forEach(e=>{
+    //     if(e.Gia<=Number(giamax))
+    //     {
+    //       listtamthoi.push(e)
+    //     }
+    //   })
+    //   this.list_item=listtamthoi;
+    // }
+    // else if(Number(giamin)>0 && Number(giamax)==0)
+    // {
+    //   let listtamthoi:any[]=[];
+    //     this.list_item.forEach(e=>{
+    //       if(e.Gia>=Number(giamin))
+    //       {
+    //         listtamthoi.push(e)
+    //       }
+    //     })
+    //     this.list_item=listtamthoi;
+    // }
   }
   ngAfterViewInit() {}
 }
